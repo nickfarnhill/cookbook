@@ -19,7 +19,6 @@ creds_dict = json.loads(st.secrets["GOOGLE_CREDENTIALS"])
 if sheet_name and openai_api_key:
     # Authenticate with Google Sheets
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-    creds_dict = json.load(creds_file)
     creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
     gspread_client = gspread.authorize(creds)
 
