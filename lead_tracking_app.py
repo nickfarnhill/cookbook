@@ -6,8 +6,8 @@ import pandas as pd
 import json
 
 # --- Sidebar Config ---
-st.set_page_config(page_title="Talent Lead Tracker", layout="wide")
-st.title("🧠 GPT-Powered Talent Lead Tracker")
+st.set_page_config(page_title="FOOD Talent Lead Tracker", layout="wide")
+st.title("🧠 GPT-Powered FOOD Talent Lead Tracker")
 
 # --- Use Streamlit Secrets (no manual upload) ---
 sheet_name = "FOOD-Talent-Library"  # hardcoded, or make it editable if needed
@@ -16,7 +16,7 @@ import json
 openai_api_key = st.secrets["OPENAI_API_KEY"]
 creds_dict = json.loads(st.secrets["GOOGLE_CREDENTIALS"])
 
-if creds_file and sheet_name and openai_api_key:
+if sheet_name and openai_api_key:
     # Authenticate with Google Sheets
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
     creds_dict = json.load(creds_file)
