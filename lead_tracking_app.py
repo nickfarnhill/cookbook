@@ -9,12 +9,12 @@ import json
 st.set_page_config(page_title="Talent Lead Tracker", layout="wide")
 st.title("🧠 GPT-Powered Talent Lead Tracker")
 
-# --- Upload Google Credentials ---
-with st.sidebar:
-    st.header("🔐 Google Sheets Access")
-    creds_file = st.file_uploader("Upload Google Service Account JSON", type="json")
-    sheet_name = st.text_input("Google Sheet Name (exact)", "FOOD-Talent-Library")
-    openai_api_key = st.text_input("OpenAI API Key", type="password")
+# --- Use Streamlit Secrets (no manual upload) ---
+sheet_name = "FOOD-Talent-Library"  # hardcoded, or make it editable if needed
+
+import json
+openai_api_key = st.secrets["OPENAI_API_KEY"]
+creds_dict = json.loads(st.secrets["GOOGLE_CREDENTIALS"])
 
 if creds_file and sheet_name and openai_api_key:
     # Authenticate with Google Sheets
